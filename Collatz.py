@@ -1,28 +1,61 @@
-#Author: Darragh Murphy
+#!/usr/bin/env python3
 
-#take in input
-#split two numbers into 2 variables
-#lOOP_1
-#loop through values between 2 variables
-#LOOP_2
-#check if even
-#then divide by 2
-#check if odd
-#then multiply by 3 and 1
-#if 1 then break loop
-#LOOP_2
-#LOOP_1
+# ---------------------------
+# projects/collatz/Collatz.py
+# Copyright (C) 2016
+# Glenn P. Downing
+# ---------------------------
 
-user_input = input('Enter two digits seperated by a space: ')
-print(user_input)
-user_input = user_input.split(' ')
-i = int(user_input[0])
-j = int(user_input[1])
+# ------------
+# collatz_read
+# ------------
 
-while i != 1:
-    if i % 2 == 0:
-        i = i // 2
-        print(i)
-    else:
-        i = i * 3 + 1
-        print(i)
+def collatz_read (s) :
+    """
+    read two ints
+    s a string
+    return a list of two ints, representing the beginning and end of a range, [i, j]
+    """
+    a = s.split()
+    return [int(a[0]), int(a[1])]
+
+# ------------
+# collatz_eval
+# ------------
+
+def collatz_eval (i, j) :
+    """
+    i the beginning of the range, inclusive
+    j the end       of the range, inclusive
+    return the max cycle length of the range [i, j]
+    """
+    # <your code>
+    return 1
+
+# -------------
+# collatz_print
+# -------------
+
+def collatz_print (w, i, j, v) :
+    """
+    print three ints
+    w a writer
+    i the beginning of the range, inclusive
+    j the end       of the range, inclusive
+    v the max cycle length
+    """
+    w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
+
+# -------------
+# collatz_solve
+# -------------
+
+def collatz_solve (r, w) :
+    """
+    r a reader
+    w a writer
+    """
+    for s in r :
+        i, j = collatz_read(s)
+        v    = collatz_eval(i, j)
+        collatz_print(w, i, j, v)
