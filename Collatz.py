@@ -46,14 +46,17 @@ def collatz_eval (i, j) :
     """
     assert i > 0
     assert j > 0
+    assert i <= j
 
     max_cycle_length = 0
 
     while i <= j
-        while
+        current_cycle_length = collatz_cycle_length
+        if current_cycle_length > max_cycle_length:
+            max_cycle_length = current_cycle_length
+        i += 1
 
-
-    return 1
+    return max_cycle_length
 
 # -------------
 # collatz_print
