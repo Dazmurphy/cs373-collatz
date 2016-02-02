@@ -6,12 +6,6 @@
 # Glenn P. Downing
 # ---------------------------
 
-cache = {}
-
-def collatz_cache_val (i, j) :
-    if i not in cache :
-        cache[i] = j
-
 # ------------
 # collatz_read
 # ------------
@@ -33,9 +27,6 @@ def collatz_read (s) :
 def collatz_cycle_length (n) :
     cycle_length = 0
     while n != 1 :
-
-        
-
         if n % 2 == 0 :
             n = n // 2
         else:
@@ -107,3 +98,41 @@ def collatz_solve (r, w) :
         i, j = collatz_read(s)
         v    = collatz_eval(i, j)
         collatz_print(w, i, j, v)
+
+# -------
+# imports
+# -------
+
+import sys
+
+# ----
+# main
+# ----
+
+if __name__ == "__main__" :
+    collatz_solve(sys.stdin, sys.stdout)
+
+"""
+% cat RunCollatz.in
+1 10
+100 200
+201 210
+900 1000
+
+
+
+% RunCollatz.py < RunCollatz.in > RunCollatz.out
+
+
+
+% cat RunCollatz.out
+1 10 1
+100 200 1
+201 210 1
+900 1000 1
+
+
+
+% pydoc3 -w Collatz
+# That creates the file Collatz.html
+"""
