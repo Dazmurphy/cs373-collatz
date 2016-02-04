@@ -27,6 +27,12 @@ def collatz_read (s) :
 # -------------
 
 def collatz_cycle_length (n) :
+
+    """
+    n the value for which the cycle length is to be calculated
+    temp holds n while operations are performed on n
+    returns the cycle length of n
+    """
     collatz_cycle_length = 1
     temp = n
     while n > 1 :
